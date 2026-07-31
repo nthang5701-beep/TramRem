@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Liên hệ Trạm Rèm: địa chỉ showroom, số điện thoại, email và bản đồ Google Maps. Gửi form liên hệ để nhận tư vấn rèm cửa." />
+  <title>Liên hệ | Trạm Rèm</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">RV</span>
+        <span class="logo-text">
+          <h1>Trạm Rèm</h1>
+          <p>Rèm cửa & trang trí nội thất</p>
+        </span>
+      </a>
+      <nav class="navbar" aria-label="Menu chính">
+        <ul class="menu">
+          <li class="menu-item"><a href="index.html">Trang chủ</a></li>
+          <li class="menu-item"><a href="about.html">Giới thiệu</a></li>
+          <li class="menu-item"><a href="category.html">Sản phẩm</a></li>
+          <li class="menu-item"><a href="projects.html">Dự án</a></li>
+          <li class="menu-item"><a href="quote.html">Báo giá</a></li>
+          <li class="menu-item"><a href="news.html">Tin tức</a></li>
+          <li class="menu-item"><a href="careers.html">Tuyển dụng</a></li>
+          <li class="menu-item"><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container" style="padding: 48px 0;">
+    <div class="section-title">
+      <h2>Liên hệ</h2>
+    </div>
+    <section style="display:grid;gap:28px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="background:#fff;padding:28px;border-radius:32px;box-shadow:var(--shadow);">
+          <h3>Thông tin liên hệ</h3>
+          <p style="color:var(--muted);margin-top:14px;">Hotline: <a href="tel:0949496435">0949 496 435</a></p>
+          <p style="color:var(--muted);">Email: <a href="mailto:nthang5701@gmail.com">nthang5701@gmail.com</a></p>
+          <p style="color:var(--muted);">Showroom TP.HCM: Số 1 Đường B2, Tây Thạnh, Q. Tân Phú</p>
+          <p style="color:var(--muted);">Showroom Hà Nội: 45 Nguyễn Trãi, Thanh Xuân</p>
+          <p style="color:var(--muted);">Showroom Đà Nẵng: 88 Lê Duẩn</p>
+        </div>
+        <div style="background:#fff;padding:28px;border-radius:32px;box-shadow:var(--shadow);">
+          <h3>Gửi yêu cầu</h3>
+          <form action="https://formsubmit.co/marketing@remvien.com" method="POST" style="display:grid;gap:18px;">
+            <label style="display:grid;gap:8px;"><span>Họ và tên</span><input type="text" name="name" required placeholder="Nhập họ tên" /></label>
+            <label style="display:grid;gap:8px;"><span>Số điện thoại</span><input type="tel" name="phone" required placeholder="Nhập SĐT" /></label>
+            <label style="display:grid;gap:8px;"><span>Email</span><input type="email" name="email" placeholder="Nhập email" /></label>
+            <label style="display:grid;gap:8px;"><span>Nội dung</span><textarea name="message" rows="4" placeholder="Nhập yêu cầu" required></textarea></label>
+            <button class="btn" type="submit">Gửi liên hệ</button>
+          </form>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:32px;overflow:hidden;box-shadow:var(--shadow);height:420px;">
+        <iframe title="Bản đồ Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4734562990146!2d106.69169231482714!3d10.77629249232303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ef9e3844d9b%3A0x9b949a2ac7f21e6e!2zMTIzIMSQLiDEkOG7qW4gTm9pIHRo4buNLCBQaOG7pyBDaMOtIE5o4bqvLCBRdWFuIDEgLCBUUEguIEjDoCBOw7R1aQ!5e0!3m2!1svi!2s!4v1690720503345!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

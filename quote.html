@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yêu cầu báo giá rèm cửa nhanh chóng. Điền thông tin dự án để nhận tư vấn và báo giá chính xác từ Trạm Rèm." />
+  <title>Báo giá | Trạm Rèm</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">RV</span>
+        <span class="logo-text">
+          <h1>Trạm Rèm</h1>
+          <p>Rèm cửa & trang trí nội thất</p>
+        </span>
+      </a>
+      <nav class="navbar" aria-label="Menu chính">
+        <ul class="menu">
+          <li class="menu-item"><a href="index.html">Trang chủ</a></li>
+          <li class="menu-item"><a href="about.html">Giới thiệu</a></li>
+          <li class="menu-item"><a href="category.html">Sản phẩm</a></li>
+          <li class="menu-item"><a href="projects.html">Dự án</a></li>
+          <li class="menu-item"><a href="quote.html">Báo giá</a></li>
+          <li class="menu-item"><a href="news.html">Tin tức</a></li>
+          <li class="menu-item"><a href="careers.html">Tuyển dụng</a></li>
+          <li class="menu-item"><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container" style="padding: 48px 0;">
+    <div class="section-title">
+      <h2>Yêu cầu báo giá</h2>
+    </div>
+    <section class="page-hero" style="margin-bottom: 24px;">
+      <div class="page-hero-card">
+        <h3>Nhận báo giá rèm cửa nhanh chóng</h3>
+        <p>Điền thông tin chi tiết để chúng tôi đo đạc và gửi báo giá chính xác theo không gian của bạn.</p>
+        <p>Chúng tôi sẽ tư vấn mẫu rèm phù hợp, báo giá theo kích thước và phong cách nội thất của bạn.</p>
+      </div>
+    </section>
+    <section style="display:grid;gap:28px;">
+      <div style="background:#fff;padding:32px;border-radius:32px;box-shadow:var(--shadow);">
+        <form action="https://formsubmit.co/marketing@remvien.com" method="POST" style="display:grid;gap:18px;">
+          <label style="display:grid;gap:10px;"><span>Họ và tên</span><input type="text" name="name" required placeholder="Nhập họ tên" /></label>
+          <label style="display:grid;gap:10px;"><span>Số điện thoại</span><input type="tel" name="phone" required placeholder="Nhập SĐT" /></label>
+          <label style="display:grid;gap:10px;"><span>Email</span><input type="email" name="email" placeholder="Nhập email" /></label>
+          <label style="display:grid;gap:10px;"><span>Địa chỉ/Không gian</span><input type="text" name="location" required placeholder="Ví dụ: phòng khách biệt thự" /></label>
+          <label style="display:grid;gap:10px;"><span>Loại rèm quan tâm</span><select name="product_type" required><option>Rèm vải</option><option>Rèm cầu vồng</option><option>Rèm cuốn</option><option>Rèm sáo gỗ</option><option>Rèm ngoài trời</option></select></label>
+          <label style="display:grid;gap:10px;"><span>Yêu cầu thêm</span><textarea name="message" rows="4" placeholder="Nhập thêm yêu cầu"></textarea></label>
+          <button class="btn" type="submit">Gửi yêu cầu</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
