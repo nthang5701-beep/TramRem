@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Đăng ký tài khoản Trạm Rèm để đặt hàng nhanh, lưu thông tin giao hàng và nhận ưu đãi thành viên." />
+  <title>Đăng ký | Trạm Rèm</title>
+  <!-- Bootstrap 5.3.3 - required framework for responsive UI -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">RV</span>
+        <span class="logo-text">
+          <h1>Trạm Rèm</h1>
+          <p>Rèm cửa & trang trí nội thất</p>
+        </span>
+      </a>
+      <nav class="navbar" aria-label="Menu chính">
+        <ul class="menu">
+          <li class="menu-item"><a href="index.html">Trang chủ</a></li>
+          <li class="menu-item"><a href="about.html">Giới thiệu</a></li>
+          <li class="menu-item"><a href="category.html">Sản phẩm</a></li>
+          <li class="menu-item"><a href="projects.html">Dự án</a></li>
+          <li class="menu-item"><a href="quote.html">Báo giá</a></li>
+          <li class="menu-item"><a href="news.html">Tin tức</a></li>
+          <li class="menu-item"><a href="careers.html">Tuyển dụng</a></li>
+          <li class="menu-item"><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="icon-link" id="accountLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="accountLabel">Đăng nhập</span>
+        </a>
+        <a href="cart.html" class="icon-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>Giỏ hàng</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="auth-section">
+      <div class="auth-card">
+        <p class="eyebrow">Tham gia Trạm Rèm</p>
+        <h2>Tạo tài khoản mới</h2>
+        <p>Đăng ký để đặt hàng nhanh hơn, lưu địa chỉ giao hàng và nhận thông báo ưu đãi mới nhất.</p>
+
+        <div class="form-success" id="registerSuccess">Đăng ký thành công! Đang chuyển đến trang đăng nhập…</div>
+
+        <form class="auth-form" id="registerForm" novalidate>
+          <div class="form-field" id="fullNameField">
+            <label for="fullName">Họ và tên</label>
+            <input class="form-control" type="text" id="fullName" name="fullName" placeholder="Nhập họ và tên" autocomplete="name" />
+            <span class="field-error">Vui lòng nhập họ tên (ít nhất 2 ký tự).</span>
+          </div>
+          <div class="form-field" id="regEmailField">
+            <label for="regEmail">Email</label>
+            <input class="form-control" type="email" id="regEmail" name="email" placeholder="vidu@email.com" autocomplete="email" />
+            <span class="field-error">Vui lòng nhập email hợp lệ (ví dụ: ten@email.com).</span>
+          </div>
+          <div class="form-field" id="phoneField">
+            <label for="phone">Số điện thoại</label>
+            <input class="form-control" type="tel" id="phone" name="phone" placeholder="09xxxxxxxx" autocomplete="tel" />
+            <span class="field-error">Số điện thoại Việt Nam gồm 10 số, bắt đầu bằng 0.</span>
+          </div>
+          <div class="form-field" id="regPasswordField">
+            <label for="regPassword">Mật khẩu</label>
+            <input class="form-control" type="password" id="regPassword" name="password" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password" />
+            <span class="field-error">Mật khẩu phải có ít nhất 6 ký tự.</span>
+          </div>
+          <div class="form-field" id="confirmPasswordField">
+            <label for="confirmPassword">Nhập lại mật khẩu</label>
+            <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu" autocomplete="new-password" />
+            <span class="field-error">Mật khẩu nhập lại không khớp.</span>
+          </div>
+          <div class="form-field" id="termsField">
+            <label class="form-check">
+              <input class="form-control" type="checkbox" id="acceptTerms" /> Tôi đồng ý với Điều khoản dịch vụ và Chính sách bảo mật
+            </label>
+            <span class="field-error">Bạn cần đồng ý điều khoản để tiếp tục.</span>
+          </div>
+          <button type="submit" class="auth-submit btn btn-primary">Đăng ký</button>
+        </form>
+
+        <p class="auth-switch">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/shop.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('registerForm');
+      const fields = {
+        fullName: { wrap: document.getElementById('fullNameField'), input: document.getElementById('fullName') },
+        email: { wrap: document.getElementById('regEmailField'), input: document.getElementById('regEmail') },
+        phone: { wrap: document.getElementById('phoneField'), input: document.getElementById('phone') },
+        password: { wrap: document.getElementById('regPasswordField'), input: document.getElementById('regPassword') },
+        confirmPassword: { wrap: document.getElementById('confirmPasswordField'), input: document.getElementById('confirmPassword') },
+        terms: { wrap: document.getElementById('termsField'), input: document.getElementById('acceptTerms') }
+      };
+      const successBox = document.getElementById('registerSuccess');
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phonePattern = /^0\d{9}$/;
+
+      function setInvalid(field, invalid) {
+        field.wrap.classList.toggle('invalid', invalid);
+      }
+
+      function validate() {
+        let valid = true;
+
+        const nameOk = fields.fullName.input.value.trim().length >= 2;
+        setInvalid(fields.fullName, !nameOk);
+        valid = valid && nameOk;
+
+        const emailOk = emailPattern.test(fields.email.input.value.trim());
+        setInvalid(fields.email, !emailOk);
+        valid = valid && emailOk;
+
+        const phoneOk = phonePattern.test(fields.phone.input.value.trim());
+        setInvalid(fields.phone, !phoneOk);
+        valid = valid && phoneOk;
+
+        const passOk = fields.password.input.value.trim().length >= 6;
+        setInvalid(fields.password, !passOk);
+        valid = valid && passOk;
+
+        const confirmOk = passOk && fields.confirmPassword.input.value.trim() === fields.password.input.value.trim();
+        setInvalid(fields.confirmPassword, !confirmOk);
+        valid = valid && confirmOk;
+
+        const termsOk = fields.terms.input.checked;
+        setInvalid(fields.terms, !termsOk);
+        valid = valid && termsOk;
+
+        return valid;
+      }
+
+      Object.values(fields).forEach(({ input }) => {
+        input.addEventListener('input', validate);
+        input.addEventListener('change', validate);
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!validate()) return;
+
+        trSetUser({
+          name: fields.fullName.input.value.trim(),
+          email: fields.email.input.value.trim().toLowerCase(),
+          phone: fields.phone.input.value.trim()
+        });
+
+        successBox.classList.add('show');
+        form.reset();
+        setTimeout(() => { window.location.href = 'login.html'; }, 1400);
+      });
+    })();
+  </script>
+  <!-- Bootstrap 5.3.3 JavaScript bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

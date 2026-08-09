@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Giỏ hàng Trạm Rèm: xem lại sản phẩm đã chọn, điều chỉnh số lượng và tổng tiền trước khi đặt hàng." />
+  <title>Giỏ hàng | Trạm Rèm</title>
+  <!-- Bootstrap 5.3.3 - required framework for responsive UI -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">RV</span>
+        <span class="logo-text">
+          <h1>Trạm Rèm</h1>
+          <p>Rèm cửa & trang trí nội thất</p>
+        </span>
+      </a>
+      <nav class="navbar" aria-label="Menu chính">
+        <ul class="menu">
+          <li class="menu-item"><a href="index.html">Trang chủ</a></li>
+          <li class="menu-item"><a href="about.html">Giới thiệu</a></li>
+          <li class="menu-item"><a href="category.html">Sản phẩm</a></li>
+          <li class="menu-item"><a href="projects.html">Dự án</a></li>
+          <li class="menu-item"><a href="quote.html">Báo giá</a></li>
+          <li class="menu-item"><a href="news.html">Tin tức</a></li>
+          <li class="menu-item"><a href="careers.html">Tuyển dụng</a></li>
+          <li class="menu-item"><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="icon-link" id="accountLink">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="accountLabel">Đăng nhập</span>
+        </a>
+        <a href="cart.html" class="icon-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>Giỏ hàng</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 48px 0;">
+    <div class="section-title">
+      <h2>Giỏ hàng của bạn</h2>
+    </div>
+
+    <section class="cart-layout">
+      <div class="cart-table-wrap" id="cartTableWrap">
+        <table class="cart-table" id="cartTable">
+          <thead>
+            <tr>
+              <th>Sản phẩm</th>
+              <th>Đơn giá</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cartBody"></tbody>
+        </table>
+        <div class="cart-empty" id="cartEmptyMsg" style="display:none;">
+          Giỏ hàng của bạn đang trống. <a href="category.html" style="color:var(--accent-dark); font-weight:700;">Tiếp tục mua sắm →</a>
+        </div>
+      </div>
+
+      <aside class="cart-summary">
+        <h3>Tóm tắt đơn hàng</h3>
+        <div class="summary-row"><span>Tạm tính</span><span id="sumSubtotal">0 ₫</span></div>
+        <div class="summary-row"><span>Phí vận chuyển & lắp đặt</span><span id="sumShipping">0 ₫</span></div>
+        <div class="summary-row total"><span>Tổng cộng</span><span id="sumTotal">0 ₫</span></div>
+        <button class="auth-submit" id="checkoutBtn" style="margin-top:18px;">Tiến hành đặt hàng</button>
+        <p style="font-size:0.8rem; color:var(--muted); margin-top:12px;">Nhân viên Trạm Rèm sẽ liên hệ xác nhận đo đạc và lắp đặt trong vòng 24 giờ.</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="assets/js/shop.js"></script>
+  <script>
+    (function () {
+      const currency = new Intl.NumberFormat('vi-VN');
+      const SHIPPING_FEE = 150000;
+
+      function formatVnd(n) {
+        return currency.format(n) + ' ₫';
+      }
+
+      function render() {
+        const cart = trGetCart();
+        const body = document.getElementById('cartBody');
+        const emptyMsg = document.getElementById('cartEmptyMsg');
+        const table = document.getElementById('cartTable');
+        body.innerHTML = '';
+
+        if (cart.length === 0) {
+          table.style.display = 'none';
+          emptyMsg.style.display = 'block';
+          updateSummary(cart);
+          return;
+        }
+        table.style.display = 'table';
+        emptyMsg.style.display = 'none';
+
+        cart.forEach((item) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>
+              <div class="cart-product">
+                <img src="${item.img}" alt="${item.name}" />
+                <div>
+                  <strong>${item.name}</strong>
+                  <span>${item.variant || ''}</span>
+                </div>
+              </div>
+            </td>
+            <td>${formatVnd(item.price)}</td>
+            <td>
+              <div class="qty-control">
+                <button type="button" data-action="dec" data-id="${item.id}">−</button>
+                <input type="text" value="${item.qty}" data-id="${item.id}" readonly />
+                <button type="button" data-action="inc" data-id="${item.id}">+</button>
+              </div>
+            </td>
+            <td>${formatVnd(item.price * item.qty)}</td>
+            <td><button class="remove-item" data-action="remove" data-id="${item.id}">Xoá</button></td>
+          `;
+          body.appendChild(tr);
+        });
+
+        updateSummary(cart);
+      }
+
+      function updateSummary(cart) {
+        const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        const shipping = cart.length ? SHIPPING_FEE : 0;
+        document.getElementById('sumSubtotal').textContent = formatVnd(subtotal);
+        document.getElementById('sumShipping').textContent = formatVnd(shipping);
+        document.getElementById('sumTotal').textContent = formatVnd(subtotal + shipping);
+      }
+
+      document.getElementById('cartBody').addEventListener('click', function (event) {
+        const btn = event.target.closest('button');
+        if (!btn) return;
+        const id = btn.dataset.id;
+        const cart = trGetCart();
+        const item = cart.find((p) => p.id === id);
+        if (!item) return;
+
+        if (btn.dataset.action === 'inc') {
+          item.qty += 1;
+        } else if (btn.dataset.action === 'dec') {
+          item.qty = Math.max(1, item.qty - 1);
+        } else if (btn.dataset.action === 'remove') {
+          const idx = cart.indexOf(item);
+          cart.splice(idx, 1);
+        }
+        trSetCart(cart);
+        render();
+      });
+
+      document.getElementById('checkoutBtn').addEventListener('click', function () {
+        const cart = trGetCart();
+        if (cart.length === 0) {
+          alert('Giỏ hàng của bạn đang trống.');
+          return;
+        }
+        const user = trGetUser();
+        if (!user) {
+          alert('Vui lòng đăng nhập trước khi đặt hàng.');
+          window.location.href = 'login.html';
+          return;
+        }
+        alert('Cảm ơn bạn! Đơn hàng đã được ghi nhận, Trạm Rèm sẽ liên hệ xác nhận sớm nhất.');
+        trSetCart([]);
+        render();
+      });
+
+      render();
+    })();
+  </script>
+  <!-- Bootstrap 5.3.3 JavaScript bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
